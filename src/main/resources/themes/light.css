@@ -5,37 +5,383 @@
 	-fx-text-fill: #000000;
 }
 
-/* Dialog Box */
-.dialog-box .root-pane
+.root
 {
-    -fx-background-color: #FBFBFB;
-    -fx-border-color: #FBFBFB;
-}
-.dialog-box .title-bar .button:hover
-{
-	-fx-background-color: #D61425;
-}
-.dialog-box .title-bar .button .icon
-{
-    -fx-background-color: #000000;
-}
-.dialog-box .title-bar .button:hover .icon
-{
-	-fx-background-color: #FFFFFF;
+    -fx-background-color: #FFFFFF;
 }
 
-.check-box .box
+/* BUTTON */
+.button:styled
 {
-	-fx-border-color: #CCCCCC;
+	-fx-border-color: #555555;
 }
-.check-box:selected .mark
+.button:styled:action
+{
+	-fx-border-color: #007ACC;
+}
+.button:styled:cancel
+{
+	-fx-border-color: #555555;
+}
+.button:styled:hover,
+.button:styled:focused
+{
+	-fx-border-color: #007ACC;
+}
+.button:styled:armed
+{
+	-fx-background-color: #007ACC;
+}
+
+/* BOT */
+.bot
+{
+	-fx-border-color: transparent;
+}
+.bot:hover
+{
+	-fx-background-color: rgba(255, 255, 255, 0.1);
+}
+.bot > .button:hover
+{
+	-fx-background-color: rgba(255, 255, 255, 0.1);
+}
+.bot > .button:armed
+{
+	-fx-background-color: rgba(255, 255, 255, 0.2);
+}
+.bot > .check-box .box
+{
+	-fx-background-color: #FF0000;
+}
+.bot > .check-box:selected .box
+{
+	-fx-background-color: transparent;
+}
+
+/* BOT VIEW */
+.bot-view { }
+.bot-view .list-cell:selected .bot
+{
+	-fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: transparent transparent transparent #007ACC;
+}
+
+/* CHAT */
+.chat:human .comment
+{
+	-fx-background-color: #0583F9;
+}
+.chat:bot .comment
+{
+	-fx-background-color: #302F35;
+}
+
+/* CHECK BOX */
+.check-box > .box
+{
+	-fx-background-color: #F3F3F3;
+	-fx-border-color: transparent;
+}
+.check-box:selected > .box > .mark
+{
+	-fx-background-color: #000000;
+}
+.check-box:hover > .box,
+.check-box:focused > .box
+{
+	-fx-border-color: #007ACC;
+}
+
+/* CODE AREA */
+.code-area
+{
+	-fx-border-color: #555555;
+}
+.code-area:hover,
+.code-area:focused
+{
+	-fx-border-color: #007ACC;
+}
+
+/* COMBO BOX */
+.combo-box
+{
+	-fx-border-color: #555555;
+}
+.combo-box .arrow
+{
+	-fx-background-color: #555555;
+}
+.combo-box:hover,
+.combo-box:focused
+{
+	-fx-border-color: #007ACC;
+}
+.combo-box:hover .arrow,
+.combo-box:focused .arrow,
+.combo-box:showing .arrow
 {
 	-fx-background-color: #000000;
 }
 
+/* COMBO BOX POPUP */
+.combo-box-popup > .list-view
+{
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #007ACC;
+}
+.combo-box-popup > .list-view .list-cell:hover
+{
+	-fx-background-color: #D6EBFF;
+}
+
+/* CONTEXT MENU */
+.context-menu
+{
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #BABABA;
+}
+.context-menu .separator .line
+{
+	-fx-background-color: #BABABA;
+}
+
+/* LOG */
+.log
+{
+	/* -fx-background-radius: 10; */
+	-fx-background-color: #2B2B2B;
+}
+
+/* LOG VIEW */
+.log-view { }
+.log-view .list-cell { }
+
+/* MENU */
+.menu:focused
+{
+	-fx-background-color: #E8EAED;
+}
+
+/* MENU */
+.menu
+{
+	-fx-text-fill: #000000;
+}
+.menu .label
+{
+	-fx-text-fill: #000000;
+}
+.menu:focused
+{
+	-fx-background-color: #E8EAED;
+}
+
+/* MENU BAR */
+.menu-bar
+{
+	-fx-background-color: #FFFFFF;
+}
+.menu-bar .button
+{
+	-fx-text-fill: #000000;
+}
+.menu-bar .button:hover,
+.menu-bar .button:showing
+{
+	-fx-background-color: #DEDEDE;
+}
+
+/* NAVI [ NAVIGATION ] */
+.navi { }
+.navi > .label
+{
+	-fx-text-fill: #888888;
+}
+.navi:selected
+{
+	-fx-background-color: #C5CAD3;
+}
+.navi:selected > .label
+{
+	-fx-text-fill: #000000;
+}
+
+/* NAVI VIEW [ NAVIGATION VIEW ] */
+.navi-view { }
+.navi-header-area
+{
+	-fx-background-color: #E8EAED;
+}
+
+/* NOTICE */
+.notice
+{
+	-fx-background-color: #252526;
+	-fx-border-color: transparent;
+}
+.notice:focused
+{
+	-fx-border-color: #007ACC;
+}
+.notice .title-bar > .label
+{
+	-fx-text-fill: #ffffff;
+}
+.notice .title-bar > .button .icon
+{
+	-fx-background-color: #FFFFFF;
+}
+.notice .title-bar > .button:hover .icon
+{
+	-fx-background-color: #007ACC;
+}
+
+/* NOTICE AREA */
+.notice-area { }
+
+/* OPTION BOX */
+.option-box .label,
+.option-box .check-box
+{
+	-fx-text-fill: #888888;
+}
+.option-box .title
+{
+	-fx-text-fill: #000000;
+}
+
+/* OPTION VIEW */
+.option-view .header > .label { }
+
+/* SCROLL BAR */
+.scroll-bar .thumb
+{
+	-fx-background-color: rgba(100, 100, 100, 0.4);
+}
+.scroll-bar .thumb:hover
+{
+	-fx-background-color: rgba(100, 100, 100, 0.5);
+}
+.scroll-bar .thumb:pressed
+{
+	-fx-background-color: rgba(100, 100, 100, 0.6);
+}
+
+/* SEPARATOR */
+.separator .line
+{
+	-fx-background-color: #888888;
+}
+
+/* TAB */
+.tab
+{
+	-fx-border-color: transparent;
+}
+.tab:selected
+{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #007ACC;
+}
+.tab-label
+{
+	-fx-text-fill: #888888;
+}
+.tab:selected .tab-label
+{
+	-fx-text-fill: #000000;
+}
+
+/* TAB VIEW */
+.tab-view
+{
+	-fx-background-color: #FFFFFF;
+}
+.tab-view > .tab-header-area
+{
+	-fx-background-color: #F3F3F3;
+}
+.tab-view > .tab-button-bar
+{
+	/* -fx-background-color: #252526; */
+}
+
+/* TEXT AREA */
 .text-area,
 .text-field
 {
-	-fx-background-color: #FFFFFF;
-	-fx-border-color: #CCCCCC;
+	-fx-border-color: #CECECE;
 }
+.text-area:focused,
+.text-field:focused
+{
+	-fx-border-color: #007ACC;
+}
+
+/* TOGGlE BUTTON */
+.toggle-button
+{
+	-jfx-untoggle-color: #FFFFFF;
+	-jfx-toggle-color: #007ACC;
+}
+
+/* Dialog Box */
+.dialog-box > .root-pane
+{
+	-fx-background-color: #FFFFFF;
+    -fx-border-color: transparent;
+}
+.dialog-box > .title-bar > .button:hover
+{
+	-fx-background-color: #D61425;
+}
+.dialog-box > .title-bar > .button .icon
+{
+    -fx-background-color: #000000;
+}
+.dialog-box:focused > .root-pane
+{
+	-fx-border-color: #007ACC;
+}
+
+/* SIDE AREA */
+.side-area { }
+.side-area .tab
+{
+    -fx-background-color: #F3F3F3;
+	-fx-border-color: transparent;
+}
+.side-area .tab-view
+{
+    -fx-background-color: #F3F3F3;
+}
+
+/* DEBUG AREA */
+.debug-area
+{
+	-fx-border-color: #414141;
+}
+.debug-area .tab
+{
+	-fx-border-color: transparent;
+}
+
+/* EDITOR AREA */
+.editor-area
+{
+    -fx-background-color: #1E1E1E;
+}
+
+/* STATUS BAR */
+.status-bar
+{
+	-fx-background-color: #007ACC;
+}
+
+/* DEBUG TAB */
+.debug-tab {}
+
+/* GLOBAL CONFIG TAB */
+.config-tab {}

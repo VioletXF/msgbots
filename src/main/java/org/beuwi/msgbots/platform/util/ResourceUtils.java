@@ -7,6 +7,11 @@ import java.net.URL;
 
 public class ResourceUtils
 {
+	public static URL getURL(String path)
+	{
+		return ResourceUtils.class.getResource(path);
+	}
+
 	public static InputStream getFont(String name)
 	{
 		return ResourceUtils.class.getResourceAsStream("/fonts/" + name + ".ttf");
