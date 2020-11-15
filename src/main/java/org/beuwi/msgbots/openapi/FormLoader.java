@@ -14,7 +14,7 @@ public class FormLoader extends FXMLLoader
 
 		try
 		{
-			load();
+			this.load();
 		}
 		catch (Exception e)
 		{

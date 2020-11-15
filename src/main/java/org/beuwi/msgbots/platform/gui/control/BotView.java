@@ -2,23 +2,24 @@ package org.beuwi.msgbots.platform.gui.control;
 
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.scene.control.SeparatorMenuItem;
-import org.beuwi.msgbots.manager.FileManager;
 import org.beuwi.msgbots.platform.app.action.OpenDesktopAction;
+import org.beuwi.msgbots.platform.app.action.base.CopyAction;
+import org.beuwi.msgbots.platform.app.view.actions.OpenDialogBoxAction;
+import org.beuwi.msgbots.platform.app.view.dialogs.CreateBotDialog;
+import org.beuwi.msgbots.platform.util.SharedValues;
 
 public class BotView extends ListView<Bot>
 {
-	public static final String DEFAULT_STYLE_CLASS = "bot-view";
+	private static final String DEFAULT_STYLE_CLASS = "bot-view";
 
 	private final ContextMenu menu = new ContextMenu
 	(
-		new MenuItem("Create New Bot"),
-		new MenuItem("Open Bot Settings"),
-		new SeparatorMenuItem(),
-		new MenuItem("Show in Explorer", "Shift + Alt + R", event -> OpenDesktopAction.execute(FileManager.BOTS_FOLDER)),
-		new SeparatorMenuItem(),
-		new MenuItem("Copy Path", "Ctrl + Alt + C"),
-		new MenuItem("Copy Relative Path", "Ctrl + Shift + C")
+		new Menu("New Bot", "Ctrl + N", event -> OpenDialogBoxAction.execute(new CreateBotDialog())),
+		new Separator(),
+		new Menu("Show in Explorer", "Shift + Alt + R", event -> OpenDesktopAction.execute(SharedValues.BOTS_FOLDER_FILE)),
+		new Separator(),
+		new Menu("Copy Path", "Ctrl + Alt + C", event -> CopyAction.execute(SharedValues.BOTS_FOLDER_PATH)),
+		new Menu("Copy Relative Path", "Ctrl + Shift + C", event -> CopyAction.execute(SharedValues.BOTS_FOLDER_PATH))
 	);
 
 	public BotView()

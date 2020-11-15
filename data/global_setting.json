@@ -1,6 +1,6 @@
 {
 	"debug":{
-		"package":"com.kakao.talk",
+		"packageName":"com.kakao.talk",
 		"sender":"DEBUG SENDER",
 		"bot":"DEBUG BOT",
 		"isGroupChat":true,
@@ -9,7 +9,7 @@
 	},
 	"program":{
 		"autoCompile":true,
-		"theme":"Dark",
+		"theme":"dark",
 		"autoSave":true
 	}
 }

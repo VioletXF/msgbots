@@ -3,26 +3,23 @@ package org.beuwi.msgbots.platform.gui.control;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class ChatView extends ListView<Chat>
 {
+	private static final String DEFAULT_STYLE_CLASS = "chat-view";
+
 	final ContextMenu menu = new ContextMenu
 	(
-		new MenuItem("Clear", event -> clear()),
-		new MenuItem("Select All", event -> select())
+		new Menu("Clear", event -> clear()),
+		new Menu("Select All", event -> select())
 	);
 
 	public ChatView()
 	{
-		// menu.setNode(this);
-
-		this.addEventFilter(MouseEvent.MOUSE_CLICKED, event ->
+		setOnMouseClicked(event ->
 		{
 			Node target = (Node) event.getTarget();
-
-			System.out.println(target);
 
 			if (target instanceof VBox || target instanceof Text || target instanceof Label)
 			{
@@ -34,7 +31,7 @@ public class ChatView extends ListView<Chat>
 			}
 		});
 
-		this.addEventFilter(MouseEvent.MOUSE_PRESSED, event ->
+		setOnMousePressed(event ->
 		{
 			if (menu.isShowing())
 			{
@@ -58,12 +55,17 @@ public class ChatView extends ListView<Chat>
 			}
 		});
 
-		getStyleClass().add("chat-view");
+		getStyleClass().add(DEFAULT_STYLE_CLASS);
 	}
 
-	public void addChat(Chat chat)
+	public Chat getChat(int index)
 	{
-		addItem(chat);
+		return getItem(index);
+	}
+
+	public Chat getChat(String id)
+	{
+		return getItem(id);
 	}
 
 	public ObservableList<Chat> getChats()

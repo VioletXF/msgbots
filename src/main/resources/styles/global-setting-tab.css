@@ -29,11 +29,6 @@
 	/* -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 10); */
 }
 
-.option-item:selected
-{
-	-fx-background-color: #323233;
-}
-
 .option-header-area
 {
 	-fx-border-width: 0 1 0 0;
@@ -51,12 +46,28 @@
     -fx-border-color: #007ACC;
 } */
 
-.button, .check-box, .label
+.item-box
+{
+    -fx-spacing: 15;
+}
+
+.item-box .label,
+.item-box .check-box
 {
     -fx-text-fill: #888888;
 }
-
-.title-label
+.item-box .title-label
 {
     -fx-text-fill: #FFFFFF;
+}
+
+.text-area,
+.text-field
+{
+	-fx-background-color: #333333;
+}
+.text-area:hover,
+.text-area:focused
+{
+    -fx-border-color: #007ACC;
 }

@@ -98,6 +98,11 @@ public class OptionView extends HBox<Region>
 		options.addAll(option);
 	}
 
+	public Option getOption(int index)
+    {
+        return getOptions().get(index);
+    }
+
 	public ObservableList<Option> getOptions()
 	{
 		return options;

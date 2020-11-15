@@ -3,8 +3,6 @@ package org.beuwi.msgbots.platform.app.view.actions;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import org.beuwi.msgbots.platform.app.impl.Action;
-import org.beuwi.msgbots.platform.app.view.MainView;
-import org.beuwi.msgbots.platform.app.view.parts.SideAreaPart;
 
 public class ToggleSideAreaAction implements Action
 {
@@ -16,8 +14,8 @@ public class ToggleSideAreaAction implements Action
 	@Override
 	public void init()
 	{
-		apane = SideAreaPart.getRoot();
-		bpane = MainView.getRoot();
+		// apane = SideAreaPart.getRoot();
+		// bpane = MainView.getRoot();
 	}
 
 	public static void execute()

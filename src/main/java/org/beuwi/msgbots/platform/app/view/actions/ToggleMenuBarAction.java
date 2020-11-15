@@ -3,8 +3,6 @@ package org.beuwi.msgbots.platform.app.view.actions;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import org.beuwi.msgbots.platform.app.impl.Action;
-import org.beuwi.msgbots.platform.app.view.MainView;
-import org.beuwi.msgbots.platform.app.view.parts.MenuBarPart;
 
 public class ToggleMenuBarAction implements Action
 {
@@ -16,8 +14,8 @@ public class ToggleMenuBarAction implements Action
     @Override
     public void init()
     {
-        spane = MenuBarPart.getRoot();
-        bpane = MainView.getRoot();
+        // spane = MenuBarPart.getRoot();
+        // bpane = MainView.getRoot();
     }
 
     public static void execute()

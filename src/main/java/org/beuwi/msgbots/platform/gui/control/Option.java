@@ -10,7 +10,7 @@ import javafx.scene.layout.Region;
 @DefaultProperty("content")
 public class Option extends Label
 {
-	public static final String DEFAULT_STYLE_CLASS = "option-item";
+	public static final String DEFAULT_STYLE_CLASS = "option";
 
 	private static final Pos DEFAULT_TEXT_ALIGNMENT = Pos.CENTER_LEFT;
 	private static final int DEFAULT_OPTION_HEIGHT = 30;

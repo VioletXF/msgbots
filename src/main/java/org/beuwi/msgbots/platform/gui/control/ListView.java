@@ -2,50 +2,20 @@ package org.beuwi.msgbots.platform.gui.control;
 
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SelectionMode;
-import javafx.util.Callback;
 
 import java.util.List;
 
-public class ListView<T> extends ScrollPane
+public class ListView<T> extends javafx.scene.control.ListView<T>
 {
-	private final javafx.scene.control.ListView<T> root = new javafx.scene.control.ListView<T>();
-
 	public ListView()
 	{
-		/* setCellFactory(param -> new ListCell<>()
-		{
-			{
-				prefWidthProperty().bind(this.widthProperty());
-				setMaxWidth(Control.USE_PREF_SIZE);
-			}
-
-			@Override
-			protected void updateItem(T item, boolean empty)
-			{
-				super.updateItem(item, empty);
-
-				if (item != null && !empty)
-				{
-					setGraphic(item);
-				}
-				else
-				{
-					setGraphic(null);
-				}
-			}
-		}); */
-
-		setContent(root);
-		setFitToWidth(true);
-		setFitToHeight(true);
+		
 	}
 
 	public void scroll(T item)
 	{
-		root.scrollTo(item);
+		scrollTo(item);
 	}
 
 	public void clear()
@@ -79,11 +49,6 @@ public class ListView<T> extends ScrollPane
 		scroll(item);
 	}
 
-	public ObservableList<T> getItems()
-	{
-		return root.getItems();
-	}
-
 	public T getItem(int index)
 	{
 		return getItems().get(index);
@@ -112,11 +77,6 @@ public class ListView<T> extends ScrollPane
 		return getSelectionModel().getSelectedItems();
 	}
 
-	public MultipleSelectionModel<T> getSelectionModel()
-	{
-		return root.getSelectionModel();
-	}
-
 	public void setContextMenu(ContextMenu menu)
 	{
 		menu.setNode(this);
@@ -125,10 +85,5 @@ public class ListView<T> extends ScrollPane
 	public void setSelectionMode(SelectionMode mode)
 	{
 		getSelectionModel().setSelectionMode(mode);
-	}
-
-	public void setCellFactory(Callback<javafx.scene.control.ListView<T>, ListCell<T>> value)
-	{
-		root.setCellFactory(value);
 	}
 }

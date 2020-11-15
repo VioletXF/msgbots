@@ -5,9 +5,9 @@ import javafx.scene.layout.Priority;
 
 public class Chat extends HBox
 {
-	private static final String DEFAULT_STYLE_CLASS = "chat-item";
-	// private static final String HUMAN_STYLE_CLASS = "chat-human";
-	// private static final String BOT_STYLE_CLASS = "chat-bot";
+	private static final String DEFAULT_STYLE_CLASS = "chat";
+	private static final String HUMAN_STYLE_CLASS = "human";
+	private static final String BOT_STYLE_CLASS = "bot";
 
 	// private static final int DEFAULT_MIN_HEIGHT = 50;
 
@@ -33,29 +33,27 @@ public class Chat extends HBox
 	{
 		menu = new ContextMenu
 		(
-			new MenuItem("Copy"),
-			new MenuItem("Delete")
+			new Menu("Copy"),
+			new Menu("Delete")
 		);
 
 		menu.setNode(chat);
 
-		name.setText("TEST NAME");
-
-		item.setSpacing(10);
+		// item.setSpacing(10);
 		item.setFillWidth(false);
 		// item.setFitContent(false);
 
 		chat.setText(message);
-		chat.setMaxWidth(220);
+		// chat.setMaxWidth(220);
 		chat.setWrapText(true);
-		chat.getStyleClass().add("chat-label");
+		chat.getStyleClass().add("chat");
 
 		if (!isbot)
 		{
 			chat.setAlignment(Pos.CENTER_RIGHT);
 			item.setAlignment(Pos.CENTER_RIGHT);
 			this.setAlignment(Pos.CENTER_RIGHT);
-			chat.getStyleClass().add("chat-human");
+			chat.getStyleClass().add("human");
 		}
 		else
 		{
@@ -63,7 +61,7 @@ public class Chat extends HBox
 			chat.setAlignment(Pos.CENTER_LEFT);
 			item.setAlignment(Pos.CENTER_LEFT);
 			this.setAlignment(Pos.CENTER_LEFT);
-			chat.getStyleClass().add("chat-bot");
+			chat.getStyleClass().add("bot");
 		}
 
 		getChildren().add(item);

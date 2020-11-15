@@ -10,14 +10,17 @@ import javafx.css.PseudoClass;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
+import org.beuwi.msgbots.platform.gui.layout.ScrollPane;
+import org.beuwi.msgbots.platform.gui.layout.StackPane;
 
 @DefaultProperty("tabs")
 public class TabPane extends VBox<Pane>
 {
-	private static final PseudoClass SELECTED_PSEUDO_CLASS = PseudoClass.getPseudoClass("selected");
-
 	private static final String DEFAULT_STYLE_CLASS = "tab-pane";
+	private static final String HEADER_STYLE_CLASS = "tab-header-area";
+	private static final String CONTENT_STYLE_CLASS = "tab-content-area";
+
+	private static final PseudoClass SELECTED_PSEUDO_CLASS = PseudoClass.getPseudoClass("selected");
 
 	private static final int DEFAULT_HEADER_WIDTH = 100;
 	private static final int DEFAULT_HEADER_HEIGHT = 30;
@@ -48,8 +51,10 @@ public class TabPane extends VBox<Pane>
 
 	public TabPane(Tab... tabs)
 	{
+		scroll.setHvalue(1.0d);
 		scroll.setContent(header);
 		scroll.setFitToWidth(false);
+		scroll.setFitToHeight(true);
 		scroll.setMinHeight(DEFAULT_HEADER_HEIGHT);
 		scroll.setMaxHeight(DEFAULT_HEADER_HEIGHT);
 		scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
@@ -109,14 +114,15 @@ public class TabPane extends VBox<Pane>
             }
         });
 
-        getSelectedProperty().addListener(change ->
+		getSelectedTabProperty().addListener(change ->
         {
-            content.getChildren().clear();
-            content.getChildren().add(getSelectedTab().getContent());
+            content.setContent(getSelectedTab().getContent());
         });
 
-		getSelectedProperty().addListener((observable, oldTab, newTab) ->
+		getSelectedTabProperty().addListener((observable, oldTab, newTab) ->
 		{
+			// UpdateStatusBarAction.execute(new String[] { getSelectedTab().getTitle() });
+
 			/* if (newTab.getBoundsInParent().getMaxX() > getWidth())
 			{
 				scroll.setHvalue(newTab.getBoundsInParent().getMaxX() / header.getBoundsInLocal().getWidth());
@@ -133,7 +139,7 @@ public class TabPane extends VBox<Pane>
 		scroll.getStyleClass().add("tab-header-area");
 		content.getStyleClass().add("tab-content-area");
 
-		setFitContent(true);
+		setFittable(true);
 		// setMinWidth(DEFAULT_MIN_WIDTH);
 		// setMinHeight(DEFAULT_MIN_HEIGHT);
 		getChildren().add(scroll);
@@ -257,7 +263,7 @@ public class TabPane extends VBox<Pane>
     }
 
 	// Selected Tab Property
-	public ObjectProperty<Tab> getSelectedProperty()
+	public ObjectProperty<Tab> getSelectedTabProperty()
 	{
 		return selected;
 	}

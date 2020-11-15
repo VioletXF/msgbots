@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 
 public class ContextMenu extends javafx.scene.control.ContextMenu
 {
-	public static final String DEFAULT_STYLE_CLASS = "context-menu";
+	private static final String DEFAULT_STYLE_CLASS = "context-menu";
 
 	public ContextMenu()
 	{
@@ -39,7 +39,7 @@ public class ContextMenu extends javafx.scene.control.ContextMenu
 					hide();
 				}
 			});
-			System.out.println();
+			
 			this.getShowingProperty().addListener((observable, oldValue, newValue) ->
 			{
 				item.pseudoClassStateChanged(PseudoClass.getPseudoClass("showing"), newValue);

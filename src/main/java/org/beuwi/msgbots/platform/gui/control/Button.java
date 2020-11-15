@@ -11,13 +11,14 @@ import java.util.List;
 public class Button extends javafx.scene.control.Button
 {
 	private static final String DEFAULT_STYLE_CLASS = "button";
-	private static final String ACTION_STYLE_CLASS = "button-action";
-	private static final String CANCEL_STYLE_CLASS = "button-cancel";
 
-	private final double DEFAULT_WIDTH = 70;
-	private final double DEFAULT_HEIGHT = 30;
+	private static final String ACTION_STYLE_CLASS = "action";
+	private static final String CANCEL_STYLE_CLASS = "cancel";
 
-	private final ObjectProperty<Type> type = new SimpleObjectProperty<>(null);
+	private static final int DEFAULT_PREF_WIDTH = 70;
+	private static final int DEFAULT_PREF_HEIGHT = 30;
+
+	private final ObjectProperty<Type> type = new SimpleObjectProperty(null);
 
 	private final BooleanProperty styled = new SimpleBooleanProperty(false);
 
@@ -28,12 +29,12 @@ public class Button extends javafx.scene.control.Button
 
 	public Button()
 	{
-		setPrefWidth(DEFAULT_WIDTH);
-		setPrefHeight(DEFAULT_HEIGHT);
+		setPrefWidth(DEFAULT_PREF_WIDTH);
+		setPrefHeight(DEFAULT_PREF_HEIGHT);
 
 		styled.addListener(change ->
 		{
-			pseudoClassStateChanged(PseudoClass.getPseudoClass("styled"), isStyled());
+			pseudoClassStateChanged(PseudoClass.getPseudoClass("styled"), getStyled());
 		});
 
 		type.addListener(change ->
@@ -55,14 +56,14 @@ public class Button extends javafx.scene.control.Button
 		// setType(Type.CANCEL);
 	}
 
-	public boolean isStyled()
-	{
-		return styled.get();
-	}
-
 	public Type getType()
 	{
 		return type.get();
+	}
+
+	public boolean getStyled()
+	{
+		return styled.get();
 	}
 
 	public void setType(Type type)

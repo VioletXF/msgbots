@@ -1,14 +1,12 @@
 package org.beuwi.msgbots.platform.gui.control;
 
-import javafx.geometry.Insets;
+import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 
 public class MenuButton extends Button
 {
 	private static final String DEFAULT_STYLE_CLASS = "menu-button";
-
-    private static final Insets DEFAULT_PADDING = new Insets(0, 5, 0, 5);
 
 	private static final int DEFAULT_WIDTH = 40;
 	private static final int DEFAULT_HEIGHT = 30;
@@ -20,8 +18,6 @@ public class MenuButton extends Button
 
 	public MenuButton(String name)
 	{
-		setPadding(DEFAULT_PADDING);
-
 		setMinWidth(DEFAULT_WIDTH);
 		// setPrefWidth(DEFAULT_WIDTH);
 		setPrefHeight(DEFAULT_HEIGHT);
@@ -42,5 +38,10 @@ public class MenuButton extends Button
 	public void setMenus(MenuItem... items)
 	{
 		setMenu(new ContextMenu(items));
+	}
+
+	public ReadOnlyBooleanProperty getFocusedProperty()
+	{
+		return focusedProperty();
 	}
 }

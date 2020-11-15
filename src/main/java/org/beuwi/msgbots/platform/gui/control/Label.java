@@ -5,6 +5,8 @@ import javafx.scene.image.ImageView;
 
 public class Label extends javafx.scene.control.Label
 {
+	private static final String DEFAULT_STYLE_CLASS = "label";
+
 	{
 		setMaxWidth(Double.MAX_VALUE);
 		setMaxHeight(Double.MAX_VALUE);
